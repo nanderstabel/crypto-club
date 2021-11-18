@@ -4,7 +4,6 @@ IP=`hostname -I | cut -d ' ' -f1`
 
 # Clone latest WASP node version
 git clone https://github.com/iotaledger/wasp
-cd wasp
 
 # Update and upgrade package list
 sudo apt-get update
