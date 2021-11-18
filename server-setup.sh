@@ -29,20 +29,20 @@ sudo apt-get install libbz2-dev -y
 sudo apt-get install liblz4-dev -y
 sudo apt-get install libzstd-dev -y
 
-# Install make, g++, npm, json 
+# Install make, g++, npm, json, moreutils, jq
 sudo apt install make
 sudo apt-get install g++ -y
-sudo apt install npm -y
-npm install -g json
+sudo apt install moreutils -y
+sudo apt install jq -y
 
 # Compile wasp and wasp-cli binaries
 cd wasp
 make build
 
 # Replace localhost with public IP address
-json -I -f config.json -e "this.webapi.bindAddress='${IP}:9090'"
-json -I -f config.json -e "this.dashboard.bindAddress='${IP}:7000'"
-json -I -f config.json -e "this.peering.netid='${IP}:4000'"
+jq '.webapi.bindAddress = "${IP}:9090"' config.json|sponge config.json
+jq '.dashboard.bindAddress = "${IP}:7000"' config.json|sponge config.json
+jq '.peering.netid = "${IP}:4000"' config.json|sponge config.json
 
 # Connect to devnet GoShimmer node
-json -I -f config.json -e "this.nodeconn.address='goshimmer.sc.iota.org:5000'"
+jq '.peering.netid = "goshimmer.sc.iota.org:5000"' config.json|sponge config.json
