@@ -45,3 +45,6 @@ json -I -f config.json -e "this.peering.netid='${IP}:4000'"
 
 # Connect to devnet GoShimmer node
 json -I -f config.json -e "this.nodeconn.address='${IP}:5000'"
+
+# Cleanup
+rm -rf crypto-club server-setup.sh
