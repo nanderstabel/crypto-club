@@ -20,7 +20,6 @@ sudo export GOPATH=$HOME/wasp
 echo "export GOPATH=\$HOME/wasp" >> ~/.profile
 sudo export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 echo "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH" >> ~/.profile
-source ~
 unset GOPATH
 
 # # Install prerequisites for RocksDB
