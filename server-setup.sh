@@ -46,5 +46,17 @@ jq '.webapi.bindAddress = "'${IP}':9090"' config.json|sponge config.json
 jq '.dashboard.bindAddress = "'${IP}':7000"' config.json|sponge config.json
 jq '.peering.netid = "'${IP}':4000"' config.json|sponge config.json
 
-# Connect to devnet GoShimmer node
+# Connect to devnet GoShimmer node and add whitelist
 jq '.nodeconn.address = "goshimmer.sc.iota.org:5000"' config.json|sponge config.json
+jq '.webapi.adminWhitelist = ["'${IP}'"]' config.json|sponge config.json
+
+# Initialize wasp-cli
+./wasp-cli init
+
+# Configure wasp-cli.json file
+wasp-cli set goshimmer.api https://api.goshimmer.sc.iota.org
+wasp-cli set goshimmer.faucetpowtarget -1
+
+wasp-cli set wasp.0.api ${IP}:9090
+wasp-cli set wasp.0.nanomsg ${IP}:5550
+wasp-cli set wasp.0.peering ${IP}:4000
