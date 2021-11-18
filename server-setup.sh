@@ -2,11 +2,6 @@
 
 IP=`hostname -I | rev | cut -c 2- | rev`
 
-# Move to homefolder
-cd ..
-mv crypto-club/server-setup.sh .
-rm -rf crypto_club
-
 # Clone latest WASP node version
 git clone https://github.com/iotaledger/wasp
 cd wasp
