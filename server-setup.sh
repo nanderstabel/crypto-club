@@ -2,6 +2,11 @@
 
 IP=`hostname -I | rev | cut -c 2- | rev`
 
+# Move to homefolder
+cd ..
+mv crypto-club/server-setup.sh .
+rm -rf crypto_club
+
 # Clone latest WASP node version
 git clone https://github.com/iotaledger/wasp
 cd wasp
@@ -36,6 +41,7 @@ sudo apt install npm -y
 npm install -g json
 
 # Compile wasp and wasp-cli binaries
+cd wasp
 make build
 
 # Replace localhost with public IP address
@@ -45,6 +51,3 @@ json -I -f config.json -e "this.peering.netid='${IP}:4000'"
 
 # Connect to devnet GoShimmer node
 json -I -f config.json -e "this.nodeconn.address='${IP}:5000'"
-
-# Cleanup
-rm -rf crypto-club server-setup.sh
