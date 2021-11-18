@@ -14,9 +14,13 @@ wget https://dl.google.com/go/go1.16.4.linux-amd64.tar.gz
 sudo tar -xvf go1.16.4.linux-amd64.tar.gz
 sudo mv go /usr/local
 sudo rm go1.16.4.linux-amd64.tar.gz
+sudo export GOROOT=/usr/local/go
 echo "export GOROOT=/usr/local/go" >> ~/.profile
+sudo export GOPATH=$HOME/wasp
 echo "export GOPATH=\$HOME/wasp" >> ~/.profile
+sudo export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 echo "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH" >> ~/.profile
+source ~
 unset GOPATH
 
 # # Install prerequisites for RocksDB
