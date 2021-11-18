@@ -20,28 +20,28 @@ echo "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH" >> ~/.profile
 . ~/.profile
 unset GOPATH
 
-# Install prerequisites for RocksDB
-sudo apt-get install libgflags-dev -y
-sudo apt-get install libsnappy-dev -y
-sudo apt-get install zlib1g-dev -y
-sudo apt-get install libbz2-dev -y
-sudo apt-get install liblz4-dev -y
-sudo apt-get install libzstd-dev -y
+# # Install prerequisites for RocksDB
+# sudo apt-get install libgflags-dev -y
+# sudo apt-get install libsnappy-dev -y
+# sudo apt-get install zlib1g-dev -y
+# sudo apt-get install libbz2-dev -y
+# sudo apt-get install liblz4-dev -y
+# sudo apt-get install libzstd-dev -y
 
-# Install make, g++, npm, json, moreutils, jq
-sudo apt install make
-sudo apt-get install g++ -y
-sudo apt install moreutils -y
-sudo apt install jq -y
+# # Install make, g++, npm, json, moreutils, jq
+# sudo apt install make
+# sudo apt-get install g++ -y
+# sudo apt install moreutils -y
+# sudo apt install jq -y
 
-# Compile wasp and wasp-cli binaries
-cd wasp
-make build
+# # Compile wasp and wasp-cli binaries
+# cd wasp
+# make build
 
-# Replace localhost with public IP address
-jq '.webapi.bindAddress = "${IP}:9090"' config.json|sponge config.json
-jq '.dashboard.bindAddress = "${IP}:7000"' config.json|sponge config.json
-jq '.peering.netid = "${IP}:4000"' config.json|sponge config.json
+# # Replace localhost with public IP address
+# jq '.webapi.bindAddress = "'${IP}':9090"' config.json|sponge config.json
+# jq '.dashboard.bindAddress = "'${IP}':7000"' config.json|sponge config.json
+# jq '.peering.netid = "'${IP}':4000"' config.json|sponge config.json
 
-# Connect to devnet GoShimmer node
-jq '.peering.netid = "goshimmer.sc.iota.org:5000"' config.json|sponge config.json
+# # Connect to devnet GoShimmer node
+# jq '.nodeconn.address = "goshimmer.sc.iota.org:5000"' config.json|sponge config.json
