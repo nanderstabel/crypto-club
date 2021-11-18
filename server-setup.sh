@@ -50,8 +50,9 @@ jq '.peering.netid = "'${IP}':4000"' config.json|sponge config.json
 jq '.nodeconn.address = "goshimmer.sc.iota.org:5000"' config.json|sponge config.json
 jq '.webapi.adminWhitelist = ["'${IP}'"]' config.json|sponge config.json
 
-# Initialize wasp-cli
+# Initialize wasp-cli and request funds
 ./wasp-cli init
+./wasp-cli request-funds
 
 # Configure wasp-cli.json file
 ./wasp-cli set goshimmer.api https://api.goshimmer.sc.iota.org
