@@ -59,3 +59,6 @@ jq '.webapi.adminWhitelist = ["'${IP}'"]' config.json|sponge config.json
 ./wasp-cli set wasp.0.api ${IP}:9090
 ./wasp-cli set wasp.0.nanomsg ${IP}:5550
 ./wasp-cli set wasp.0.peering ${IP}:4000
+
+# Run WASP node
+./wasp --logger.level="warn"
