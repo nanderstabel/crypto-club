@@ -10,7 +10,7 @@ PEER_IP=${PEER_NET_ID%:*}
 ./wasp-cli set wasp.$1.peering $PEER_IP:4000
 
 # Add peer IP address to whitelist
-jq '.webapi.adminWhitelist += ["\'$PEER_ID'\"]' config.json|sponge config.json
+jq '.webapi.adminWhitelist += ["'$PEER_IP'"]' config.json|sponge config.json
 
 # Trust peer node
 ./wasp-cli peering trust $2 $3
