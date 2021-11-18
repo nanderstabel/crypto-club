@@ -5,7 +5,7 @@ PEER_NET_ID=$3
 PEER_IP=${PEER_NET_ID%:*}
 
 # Add peer node to wasp-cli.json file
-./wasp-cli set wasp.$1.api $PEER_IP:9090
+./wasp-cli set wasp.$1.api wasp:wasp@$PEER_IP:9090
 ./wasp-cli set wasp.$1.nanomsg $PEER_IP:5550
 ./wasp-cli set wasp.$1.peering $PEER_IP:4000
 
