@@ -39,7 +39,7 @@ cd wasp
 make build
 
 # Increase maximum buffer size
-sysctl -w net.core.rmem_max=2500000
+sudo sysctl -w net.core.rmem_max=2500000
 
 # Replace localhost with public IP address
 jq '.webapi.bindAddress = "'${IP}':9090"' config.json|sponge config.json
