@@ -55,7 +55,6 @@ jq '.webapi.adminWhitelist = ["'${IP}'"]' config.json|sponge config.json
 
 # Configure wasp-cli.json file
 ./wasp-cli set goshimmer.api https://api.goshimmer.sc.iota.org
-./wasp-cli set goshimmer.faucetpowtarget -1
 
 ./wasp-cli set wasp.0.api ${IP}:9090
 ./wasp-cli set wasp.0.nanomsg ${IP}:5550
