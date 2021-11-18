@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IP=`hostname -I | cut -d ' ' -f1 | cat -e`
+IP=`hostname -I | cut -d ' ' -f1`
 
 # Clone latest WASP node version
 git clone https://github.com/iotaledger/wasp
@@ -45,4 +45,4 @@ json -I -f config.json -e "this.dashboard.bindAddress='${IP}:7000'"
 json -I -f config.json -e "this.peering.netid='${IP}:4000'"
 
 # Connect to devnet GoShimmer node
-json -I -f config.json -e "this.nodeconn.address='${IP}:5000'"
+json -I -f config.json -e "this.nodeconn.address='goshimmer.sc.iota.org:5000'"
