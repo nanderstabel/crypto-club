@@ -15,11 +15,8 @@ sudo tar -xvf go1.16.4.linux-amd64.tar.gz
 sudo mv go /usr/local
 sudo rm go1.16.4.linux-amd64.tar.gz
 echo "export GOROOT=/usr/local/go" >> ~/.profile
-. ~/.profile
 echo "export GOPATH=\$HOME/wasp" >> ~/.profile
-. ~/.profile
 echo "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH" >> ~/.profile
-. ~/.profile
 unset GOPATH
 
 # # Install prerequisites for RocksDB
