@@ -8,7 +8,7 @@ git clone https://github.com/nanderstabel/crypto-club.git
 Move server-setup.sh script to home folder and run it:
 ```
 mv crypto-club/server-setup.sh .
-. ./server-setup.sh
+source ./server-setup.sh
 ```
 
 After compiling your WASP-node automatically starts running. Let it run and continue working in a new terminal. You can check if the node is indeed running by opening the dashboard by visiting \<IP address\>:7000 in your browser.
