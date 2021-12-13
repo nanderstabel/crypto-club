@@ -82,3 +82,12 @@ You might need to restart all nodes in the committee before continuing:
 ```
 
 For deploying a chain and add smart contracts follow [this](https://wiki.iota.org/wasp/guide/chains_and_nodes/setting-up-a-chain#deploy-the-iscp-chain) guide.
+
+When you're done with your node for the day, I recommend to do the following:
+Check in your config.json file if under logger.outputPaths there is an array with `stdout` and `wasp.log` . Delete wasp.log, the array should look like this: `["stdout"]` .
+This will prevent you from running out of disk space.
+Also make sure to run your wasp node like this:
+```
+nohup ./wasp >/dev/null 2>&1 &
+```
+Nohup will allow you to keep wasp running when not logged into your instance. The second part of the command makes sure no log-file is created
